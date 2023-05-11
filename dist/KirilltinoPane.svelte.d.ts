@@ -17,7 +17,7 @@ declare const __propDef: {
         trigger?: boolean;
         moveToClose?: boolean;
         bgColor?: string;
-        roundCorner?: number;
+        roundCorner?: string;
         closePane?: () => void;
     };
     events: {

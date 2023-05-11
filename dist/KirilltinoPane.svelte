@@ -18,7 +18,7 @@ export let maxSpeed = 1.5;
 export let trigger = false;
 export let moveToClose = false;
 export let bgColor = "transparent";
-export let roundCorner = 10;
+export let roundCorner = "10px 10px 0 0";
 export const closePane = () => {
   open = false;
   touchEnd();
@@ -159,7 +159,7 @@ $:
         --dashHeight: {dashHeight}px;
         --dashColor: {dashColor};
 				--bgColor: {bgColor};
-				--roundCorner: {roundCorner}px;
+				--roundCorner: {roundCorner};
         "
 		blockOutclick
 		on:touchstart={touchStartSlide}
@@ -203,7 +203,7 @@ $:
   pointer-events: all;
   height: var(--openedHeight);
   background: var(--bgColor);
-  border-radius: var(--roundCorner) var(--roundCorner) 0 0;
+  border-radius: var(--roundCorner);
 }
 .panel .cuper_dash {
   transition: var(--transition) top;
