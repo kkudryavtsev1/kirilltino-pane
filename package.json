@@ -1,6 +1,6 @@
 {
 	"name": "kirilltino-pane",
-	"version": "0.0.17",
+	"version": "1.0.0",
 	"type": "module",
 	"main": "./dist/index.js",
 	"svelte": "./dist/index.js",
