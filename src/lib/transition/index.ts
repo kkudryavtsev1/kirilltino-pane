@@ -1,6 +1,9 @@
 import { cubicInOut } from 'svelte/easing';
 
-export	function resize(node, { delay = 0, duration = 300, easing = cubicInOut }) {
+export function resize(
+    node,
+    { delay = 0, duration = 300, easing = cubicInOut }
+) {
     const style = getComputedStyle(node);
     const opacity = +style.opacity;
     const height = parseFloat(style.height);
@@ -14,7 +17,8 @@ export	function resize(node, { delay = 0, duration = 300, easing = cubicInOut })
         delay,
         duration,
         easing,
-        css: t => `overflow: hidden;` +
+        css: (t) =>
+            `overflow: hidden;` +
             `opacity: ${t * opacity};` +
             `height: ${t * height}px;` +
             `width: ${t * width}px;` +
@@ -25,7 +29,10 @@ export	function resize(node, { delay = 0, duration = 300, easing = cubicInOut })
     };
 }
 
-export	function resize_height(node, { delay = 0, duration = 300, easing = cubicInOut }) {
+export function resize_height(
+    node,
+    { delay = 0, duration = 300, easing = cubicInOut }
+) {
     const style = getComputedStyle(node);
     const opacity = +style.opacity;
     const height = parseFloat(style.height);
@@ -39,7 +46,8 @@ export	function resize_height(node, { delay = 0, duration = 300, easing = cubicI
         delay,
         duration,
         easing,
-        css: t => `overflow: hidden;` +
+        css: (t) =>
+            `overflow: hidden;` +
             `opacity: ${t * opacity};` +
             `height: ${t * height}px;` +
             // `width: ${t * width}px;` +
@@ -50,7 +58,10 @@ export	function resize_height(node, { delay = 0, duration = 300, easing = cubicI
     };
 }
 
-export	function resize_width(node, { delay = 0, duration = 300, easing = cubicInOut }) {
+export function resize_width(
+    node,
+    { delay = 0, duration = 300, easing = cubicInOut }
+) {
     const style = getComputedStyle(node);
     const opacity = +style.opacity;
     const height = parseFloat(style.height);
@@ -64,7 +75,8 @@ export	function resize_width(node, { delay = 0, duration = 300, easing = cubicIn
         delay,
         duration,
         easing,
-        css: t => `overflow: hidden;` +
+        css: (t) =>
+            `overflow: hidden;` +
             `opacity: ${t * opacity};` +
             `height: ${t * height}px;` +
             `width: ${t * width}px;` +

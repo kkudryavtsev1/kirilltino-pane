@@ -45,13 +45,16 @@
 	let outDuration = 0;
 	const tweenedHeight = tweened(undefined, {
 		duration: 300,
-		easing: cubicOut,
+		easing: cubicOut
 	});
 
 	const clickOutside = (node: HTMLElement): { destroy: () => void } => {
 		const handleClick = (event: MouseEvent) => {
 			const target = event.target as HTMLElement;
-			if (!node.contains(target as Node) && !target.hasAttribute('blockOutclick')) {
+			if (
+				!node.contains(target as Node) &&
+				!target.hasAttribute('blockOutclick')
+			) {
 				node.dispatchEvent(new CustomEvent('outclick'));
 			}
 		};
@@ -61,7 +64,7 @@
 		return {
 			destroy() {
 				document.removeEventListener('click', handleClick, true);
-			},
+			}
 		};
 	};
 
@@ -92,7 +95,12 @@
 			open = currentTransformY <= breakpoint;
 		}
 
-		if (direction === 'up' && different > 0 && different <= startPosition && moveToClose) {
+		if (
+			direction === 'up' &&
+			different > 0 &&
+			different <= startPosition &&
+			moveToClose
+		) {
 			container.style.transform = `translateY(${startPosition + different}px)`;
 			if (different > defaultHeight / 2) dispatch('dragged-to-close');
 		}
@@ -109,7 +117,11 @@
 
 		if (open && direction === 'down' && Math.abs(speed) > maxSpeed) {
 			open = false;
-		} else if (open === false && direction === 'up' && Math.abs(speed) > maxSpeed) {
+		} else if (
+			open === false &&
+			direction === 'up' &&
+			Math.abs(speed) > maxSpeed
+		) {
 			open = true;
 		}
 
@@ -140,7 +152,8 @@
 		tweenedHeight.set(from, { duration: 0 });
 		tweenedHeight.set(to, { duration });
 		const move = () => {
-			if (container?.style) container.style.transform = `translateY(${$tweenedHeight}px)`;
+			if (container?.style)
+				container.style.transform = `translateY(${$tweenedHeight}px)`;
 			if ($tweenedHeight !== to) requestAnimationFrame(move);
 			else if ($tweenedHeight === to) {
 				outDuration = open ? container.clientHeight : defaultHeight;
@@ -171,7 +184,11 @@
 	}
 </script>
 
-<div on:scroll={(_) => (wrapper.scrollTop = 0)} bind:this={wrapper} class="wrap">
+<div
+	on:scroll={(_) => (wrapper.scrollTop = 0)}
+	bind:this={wrapper}
+	class="wrap"
+>
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div
 		bind:this={container}
