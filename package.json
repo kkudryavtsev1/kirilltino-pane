@@ -1,25 +1,30 @@
 {
-  "name": "kirilltino-pane",
-  "version": "0.0.17",
-  "main": "src/index.js",
-  "svelte": "src/index.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json"
-  },
-  "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.1.0",
-    "@tsconfig/svelte": "^3.0.0",
-    "svelte": "^3.52.0",
-    "svelte-check": "^2.9.2",
-    "svelte-preprocess": "^4.10.7",
-    "tslib": "^2.4.0",
-    "typescript": "^4.6.4",
-    "vite": "^3.2.0"
-  },
-  "dependencies": {
-    "node-sass": "^7.0.3"
-  }
+    "name": "kirilltino-pane",
+    "version": "0.0.17",
+    "main": "src/index.js",
+    "svelte": "src/index.js",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "check": "svelte-check --tsconfig ./tsconfig.json"
+    },
+    "devDependencies": {
+        "@sveltejs/package": "^2.0.2",
+        "@sveltejs/vite-plugin-svelte": "^2.0.3",
+        "@tsconfig/svelte": "^4.0.1",
+        "svelte-check": "^2.10.3",
+        "tslib": "^2.5.0",
+        "typescript": "^5.0.2",
+        "vite": "^4.3.2"
+    },
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "svelte": "./dist/index.js"
+        }
+    },
+    "peerDependencies": {
+        "svelte": "^3.52.0"
+    }
 }
