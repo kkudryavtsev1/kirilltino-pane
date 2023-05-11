@@ -1,9 +1,6 @@
 import { SvelteComponentTyped } from "svelte";
 declare const __propDef: {
     props: {
-        /**
-             * body
-             */ open?: boolean;
         defaultHeight?: number;
         openedHeight?: number;
         breakpoint?: number;
@@ -21,6 +18,7 @@ declare const __propDef: {
         closePane?: () => void;
     };
     events: {
+        'dragged-to-close': CustomEvent<any>;
         updateStatus: CustomEvent<any>;
     } & {
         [evt: string]: CustomEvent<any>;

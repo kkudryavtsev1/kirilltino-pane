@@ -12,7 +12,7 @@
 	 * body
 	 */
 
-	export let open = false;
+	let open = false;
 	let container: HTMLElement;
 	export let defaultHeight = 0;
 	export let openedHeight = 0;
@@ -47,6 +47,8 @@
 		duration: 300,
 		easing: cubicOut
 	});
+
+	const dispatch = createEventDispatcher();
 
 	const clickOutside = (node: HTMLElement): { destroy: () => void } => {
 		const handleClick = (event: MouseEvent) => {
@@ -137,7 +139,6 @@
 		different = 0;
 	};
 
-	const dispatch = createEventDispatcher();
 	$: dispatch('updateStatus', open), open;
 
 	const outClickMain = () => {

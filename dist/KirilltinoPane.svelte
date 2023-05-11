@@ -3,7 +3,7 @@ import { tweened } from "svelte/motion";
 import { cubicOut } from "svelte/easing";
 import { fly } from "svelte/transition";
 import { getTranslateYValue } from "./helpers/helpers";
-export let open = false;
+let open = false;
 let container;
 export let defaultHeight = 0;
 export let openedHeight = 0;
@@ -36,6 +36,7 @@ const tweenedHeight = tweened(void 0, {
   duration: 300,
   easing: cubicOut
 });
+const dispatch = createEventDispatcher();
 const clickOutside = (node) => {
   const handleClick = (event) => {
     const target = event.target;
@@ -97,7 +98,6 @@ const touchEnd = () => {
   direction = "";
   different = 0;
 };
-const dispatch = createEventDispatcher();
 $:
   dispatch("updateStatus", open), open;
 const outClickMain = () => {
