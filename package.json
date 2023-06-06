@@ -22,12 +22,6 @@
 		"typescript": "^5.0.2",
 		"vite": "^4.3.2"
 	},
-	"exports": {
-		".": {
-			"types": "./dist/index.d.ts",
-			"svelte": "./dist/index.js"
-		}
-	},
 	"peerDependencies": {
 		"svelte": "^3.52.0"
 	}
