@@ -71,6 +71,9 @@
 	};
 
 	const touchStartSlide = (e: TouchEvent) => {
+
+		dispatch('touch-start-pane')
+
 		startTime = new Date().getTime();
 
 		if (open) {
@@ -109,6 +112,7 @@
 	};
 
 	const touchEnd = () => {
+		dispatch('touch-end-pane')
 		blockCuper = true;
 		endTime = new Date().getTime();
 

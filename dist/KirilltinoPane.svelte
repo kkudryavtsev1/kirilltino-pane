@@ -52,6 +52,7 @@ const clickOutside = (node) => {
   };
 };
 const touchStartSlide = (e) => {
+  dispatch("touch-start-pane");
   startTime = (/* @__PURE__ */ new Date()).getTime();
   if (open) {
     direction = "down";
@@ -79,6 +80,7 @@ const touchMoveSlide = (e) => {
   }
 };
 const touchEnd = () => {
+  dispatch("touch-end-pane");
   blockCuper = true;
   endTime = (/* @__PURE__ */ new Date()).getTime();
   const speed = different / (endTime - startTime);

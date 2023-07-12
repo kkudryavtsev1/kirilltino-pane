@@ -18,7 +18,9 @@ declare const __propDef: {
         closePane?: () => void;
     };
     events: {
+        'touch-start-pane': CustomEvent<any>;
         'dragged-to-close': CustomEvent<any>;
+        'touch-end-pane': CustomEvent<any>;
         updateStatus: CustomEvent<any>;
     } & {
         [evt: string]: CustomEvent<any>;
